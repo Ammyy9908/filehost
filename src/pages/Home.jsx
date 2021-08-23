@@ -5,14 +5,15 @@ import {FiUploadCloud,FiDownloadCloud} from "react-icons/fi"
 import firebase from "firebase"
 import axios from 'axios';
 import { addFile, setPublicFiles } from '../redux/actions/_appAction';
+// eslint-disable-next-line
 import storage from '../config/firebase'
 function FileCard({file}){
     return (
         <div className="file_card">
             <div className="file__cover">
-               { file.file_type==="image/jpeg" || file.file_type==="image/jpg" || file.file_type==="image/png" ? <img src={file.url} alt="" />:null}
-               {file.file_type==="application/pdf" && <img src="https://img.icons8.com/color/96/000000/pdf.png"/>}
-               {file.file_type==="application/vnd.openxmlformats-officedocument.wordprocessingml.document" && <img src="https://img.icons8.com/color/96/000000/word.png"/>}
+               { file.file_type==="image/jpeg" || file.file_type==="image/jpg" || file.file_type==="image/png" ? <img src={file.url} alt="NOT AVAILABLE" />:null}
+               {file.file_type==="application/pdf" && <img src="https://img.icons8.com/color/96/000000/pdf.png" alt="NOT AVAILABLE" />}
+               {file.file_type==="application/vnd.openxmlformats-officedocument.wordprocessingml.document" && <img src="https://img.icons8.com/color/96/000000/word.png" alt="NOT AVAILABLE"/>}
             </div>
             <div className="file__footer">
                 <div className="file__type__icon"></div>
@@ -30,7 +31,7 @@ function Home(props) {
     const uploadAtDatabase = async (name,url,upload_by,file_type)=>{
         console.log(name,url,upload_by);
         try{
-          const r = await axios.post('http://localhost:5000/file/upload',{
+          const r = await axios.post('https://filehostt.herokuapp.com/file/upload',{
             name,
             url,
             upload_by,
@@ -110,7 +111,7 @@ function Home(props) {
        
         const getPublicFiles = async ()=>{
             try{
-                const r = await axios.get('http://localhost:5000/file/list');
+                const r = await axios.get('https://filehostt.herokuapp.com/file/list');
                 return r.data;
             }
             catch(e){
@@ -133,14 +134,16 @@ function Home(props) {
       
 
       
-    },[]);
+    },
+    // eslint-disable-next-line
+    []);
 
     React.useEffect(()=>{
         const getPrivateFile = async ()=>{
             try{
-                const r = await axios.get('http://localhost:5000/file/list/private',{
+                const r = await axios.get('https://filehostt.herokuapp.com/file/list/private',{
                     params:{
-                        upload_by:"Sumit Bighaniya"
+                        upload_by:props.user.name
                     }
                 });
                 return r.data;

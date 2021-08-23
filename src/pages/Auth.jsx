@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import React from 'react'
-import { useHistory } from 'react-router-dom';
 
 
 function Field(props){
@@ -15,7 +14,7 @@ function Field(props){
 }
 
 function Auth(props) {
-    const history = useHistory();
+    
     const [email,setEmail] = React.useState('');
     const [name,setName] = React.useState('');
     const [password,setPassword] = React.useState('');
@@ -23,7 +22,7 @@ function Auth(props) {
 
 
     const handleAuth = ()=>{
-        const url = `http://localhost:5000/auth/${props.type}`;
+        const url = `https://filehostt.herokuapp.com/auth/${props.type}`;
 
         axios.post(url,{email,name,password}).then((response)=>{
             console.log(response);
