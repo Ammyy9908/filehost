@@ -1,0 +1,42 @@
+.header{
+    width: 100%;
+    height: 56px;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px 0 rgba(0,0,0,.115);
+}
+.header__wrapper{
+    width: 90%;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand_name{
+    font-size: 22px;
+    text-decoration: none;
+    color: #262626;
+}
+.navbar{
+    list-style: none;
+    
+}
+.navbar li{
+display: inline-block;
+margin-left:10px;
+}
+.navbar li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+
+}
+.navbar li a:hover{
+    color: rgb(0, 255, 106);
+}
+.active_link{
+    color: rgb(0, 255, 106) !important;
+}
