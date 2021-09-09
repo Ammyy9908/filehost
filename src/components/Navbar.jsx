@@ -13,12 +13,12 @@ function Navbar(props) {
     return (
         <div className="header">
             <div className="header__wrapper">
-                <a href="#" className="brand_name">FileHost</a>
+                <a href="/" className="brand_name">FileHost</a>
                
                    <ul className="navbar">
-                       <li><a href="#" className="active_link">Home</a></li>
+                       <li><a href="/" className="active_link">Home</a></li>
                       {!props.user &&  <li><a href="/auth/login">Login</a></li>}
-                       {props.user && <li><a href="#" onClick={handleLogout}>Logout</a></li>}
+                       {props.user && <li><a href="/" onClick={handleLogout}>Logout</a></li>}
                    </ul>
             </div>
         </div>

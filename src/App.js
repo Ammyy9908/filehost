@@ -10,7 +10,7 @@ import {setUser} from "./redux/actions/_appAction"
 function App(props) {
   console.log(props)
   React.useEffect(()=>{
-    Cookies.get("AUTH_TOKEN") && axios.get('http://localhost:5000/auth/user',{
+    Cookies.get("AUTH_TOKEN") && axios.get('https://filehostt.herokuapp.com/auth/user',{
       headers:{
         "Authorization":Cookies.get('AUTH_TOKEN')
       }
@@ -20,7 +20,9 @@ function App(props) {
     }).catch((e)=>{
       console.log(e);
     })
-  },[]);
+  },
+  // eslint-disable-next-line
+  []);
 
   return (
     <Router>

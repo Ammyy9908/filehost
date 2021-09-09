@@ -1,7 +1,7 @@
 .auth{
   width: 100%;
   height: 100vh;
-  background-color: #ccc;
+  background-color: rgba(179, 14, 255, 0.329);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -10,15 +10,40 @@
 .authBox{
   width: 350px;
   padding: 15px;
-  background-color: #fff;
+  border-radius: 1.7%;
+  opacity: 100%;
+  box-shadow: 2px 2px 192px rgba(128, 128, 128, 0.568);
+  background-color: rgba(111, 0, 255, 0.555);
+  animation-name: popup;
+  animation-duration: 0.28s;
+  animation-iteration-count: 1;
 }
+
+@keyframes popup {
+  0%{
+    transform: scale(0.5);
+    filter: blur(5px);
+    opacity: 1%;
+  }
+  50%{
+    transform: scale(1.1);
+    filter: blur(2px);
+    opacity: 100%;
+  }
+  100%{
+    transform: scale(1);
+  }
+
+}
+
 
 .field{
   width: 100%;
   height: 56px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  border-radius: 5%;
+  /* border: 0.1px solid #ccc; */
   margin-bottom: 10px;
   position: relative;
 }
@@ -26,31 +51,40 @@
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 5%;
   position: absolute;
   top: 10px;
+  z-index: 2;
+  text-shadow: 2px 2px 4px grey;
   left: 10px;
-  background-color: #fff;
+  
+  background-color: rgba(255, 255, 255, 0);
   transition: all .3s ease-out;
 }
 .field input{
-  height: 100%;
+  height: 90%;
+  border-radius: 7px;
   padding-left: 5px;
+  border: none;
 }
 .field input:focus +  label{
   top:-20px;
   left: 10px;
+  border: none;
 }
 
 .submit_btn{
   width: 100%;
   margin-top: 15px;
   height: 35px;
+  box-shadow: 2px 2px 15px rgba(128, 128, 128, 0.493);
   background-color: rgb(70, 41, 199);
   color: #fff;
   border: 0;
   outline: 0;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .static_label{
@@ -60,7 +94,7 @@
 #upload_btn{
   width:45px;
   height: 45px;
-  background-color: blue;
+  background-color: rgb(44, 44, 253);
   display: inline-flex;
   position: fixed;
   bottom:25px;
@@ -68,8 +102,12 @@
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px 2px 12px rgba(128, 128, 128, 0.849);
   color: #fff;
   cursor: pointer;
+}
+#upload_btn:hover{
+  background-color: rgb(0, 0, 145);
 }
 #file{
   display: none;
@@ -77,13 +115,15 @@
 
 .progressbar{
   width: 100%;
-  height: 15px;
-  background-color: rgb(47, 0, 255);
+  height: 18px;
+  border-radius: 6%;
+  transition: all .7s ease-in-out;
+  background-color: rgb(121, 121, 121);
 }
 .progress_value{
   height: 100%;
-  transition: all .3s ease-in-out;
-  background-color: rgb(0, 255, 136);
+  transition: all .7s ease-in-out;
+  background-color: rgb(109, 0, 252);
 }
 
 .container{
@@ -92,24 +132,39 @@
 }
 
 .files__container{
-  width: 100%;
+  width: 65%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap:15px;
+  gap:30px;
 }
 .file_card{
   flex:1;
   max-width: 250px;
   padding: 12px;
-  background-color: #fff;
-  border: 1px solid #999;
+  background-color: rgba(119, 0, 255, 0.63);
+  /* border: 1px solid rgba(132, 0, 255, 0.226); */
   display: flex;
   flex-direction: column;
   gap:10px;
-  border-radius: 4px;
+  border-radius: 3%;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.file_card:hover{
+  flex:1;
+  max-width: 250px;
+  padding: 12px;
+  background-color: rgba(119, 0, 255, 0.897);
+  /* border: 1px solid rgba(132, 0, 255, 0.226); */
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  border-radius: 3%;
   cursor: pointer;
 }
+
 .file__cover{
   width: 100%;
   height: 150px;
@@ -122,15 +177,18 @@
 
   width: 100%;
   height: 100%;
+  border-radius: 4%;
 }
 
 
 .image__cover{
   width: 100%;
   height: 100%;
+  border-radius: 4%;
 }
 .file_name{
-  font-size: 12px;
+  font-size: 14px;
+  font-family:sans-serif;
 }
 .file__footer{
   display: flex;
@@ -141,12 +199,22 @@
 .download_btn{
   width: 35px;
   height: 35px;
-  background-color: rgb(0, 24, 240);
+  background-color: rgb(0, 26, 255);
   cursor: pointer;
   color: #fff;
   display: flex;
   align-items: center;
+  box-shadow: 1px 1px 12px #3f01a38f;
   justify-content: center;
   border-radius: 50%;
   border: 0;
+}
+.download_btn:hover{
+  background-color: rgb(0, 13, 134);
+}
+a{
+  text-decoration: none;
+  text-shadow: 2px 2px 5px grey;
+  color:rgba(0, 4, 255, 0.52);
+  font-weight: 500;
 }

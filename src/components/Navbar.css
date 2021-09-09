@@ -1,8 +1,10 @@
 .header{
     width: 100%;
     height: 56px;
-    background-color: #fff;
-    box-shadow: 1px 1px 10px 0 rgba(0,0,0,.115);
+    background-color: rgba(0, 0, 0, 0.678);
+    box-shadow: 
+    1px 1px 8px rgba(0, 0, 0, 0.534)
+    ,1px 1px 90px rgba(0, 0, 0, 0.212);
 }
 .header__wrapper{
     width: 90%;
@@ -15,9 +17,11 @@
 }
 
 .brand_name{
-    font-size: 22px;
+    font-size: 25px;
     text-decoration: none;
-    color: #262626;
+    text-shadow: 2px 2px 19px rgba(124, 124, 124, 0.288);
+    color: #ffffffef;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
 }
 .navbar{
     list-style: none;
@@ -29,14 +33,15 @@ margin-left:10px;
 }
 .navbar li a{
     text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    transition: all .3s ease-in-out;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-shadow: 1px 1px 4px rgba(124, 124, 124, 0.109);
+    transition: all .2s ease-in-out;
 
 }
 .navbar li a:hover{
-    color: rgb(0, 255, 106);
+    color: rgb(120, 2, 255);
 }
 .active_link{
-    color: rgb(0, 255, 106) !important;
+    color: rgb(140, 39, 255) !important;
 }
