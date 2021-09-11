@@ -1,220 +1,137 @@
 .auth{
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   height: 100vh;
-  background-color: rgba(179, 14, 255, 0.329);
-  overflow: hidden;
+}
+
+.auth_screen{
+  flex: 1;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.authBox{
-  width: 350px;
-  padding: 15px;
-  border-radius: 1.7%;
-  opacity: 100%;
-  box-shadow: 2px 2px 192px rgba(128, 128, 128, 0.568);
-  background-color: rgba(111, 0, 255, 0.555);
-  animation-name: popup;
-  animation-duration: 0.28s;
-  animation-iteration-count: 1;
+
+.auth_screen_header{
+  width: 90%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #999;
 }
 
-@keyframes popup {
-  0%{
-    transform: scale(0.5);
-    filter: blur(5px);
-    opacity: 1%;
-  }
-  50%{
-    transform: scale(1.1);
-    filter: blur(2px);
-    opacity: 100%;
-  }
-  100%{
-    transform: scale(1);
-  }
-
+.auth_screen_content{
+  width: 65%;
+  margin: 0 auto;
 }
-
+.auth_screen_content h1{
+  margin:0;
+}
+.auth_screen_content p{
+  color: #999;
+  font-weight: 500;
+}
+.auth_screen_content p a{
+  text-decoration: none;
+  font-weight: 600;
+  color: #3f01a3;
+}
+.auth_form{
+  padding-top: 15px;
+  padding-left: 0;
+}
 
 .field{
   width: 100%;
-  height: 56px;
+  margin-top: 35px;
+  margin-bottom: 35px;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  border-radius: 5%;
-  /* border: 0.1px solid #ccc; */
-  margin-bottom: 10px;
   position: relative;
+  
+  
 }
 .field label{
-  font-weight: 600;
-  margin-top: 10px;
+  display: block;
   margin-bottom: 10px;
-  border-radius: 5%;
+  font-weight: 500;
+  font-size: 14px;
+  color: #999;
   position: absolute;
-  top: 10px;
-  z-index: 2;
-  text-shadow: 2px 2px 4px grey;
-  left: 10px;
+  top: -25px;
+  left: 0;
   
-  background-color: rgba(255, 255, 255, 0);
-  transition: all .3s ease-out;
-}
-.field input{
-  height: 90%;
-  border-radius: 7px;
-  padding-left: 5px;
-  border: none;
-}
-.field input:focus +  label{
-  top:-20px;
-  left: 10px;
-  border: none;
 }
 
-.submit_btn{
+
+.field__control{
   width: 100%;
-  margin-top: 15px;
+  display: flex;
+  align-items: center;
   height: 35px;
-  box-shadow: 2px 2px 15px rgba(128, 128, 128, 0.493);
-  background-color: rgb(70, 41, 199);
-  color: #fff;
+  border: 1px solid #e1e1e1;
+}
+.field__control input{
+  width: 95%;
+  display: block;
   border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  padding-left: 5px;
   outline: 0;
-  font-weight: 600;
+}
+.field__control button{
+  margin-right: 10px;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+.field__control button svg{
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+}
+
+.auth_form input[type="button"]{
+  width: 100%;
+  height: 45px;
+  
+  background-color: #6a18ee;
+  color: #fff;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding-left: 15px;
+  padding-right: 15px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.static_label{
-  top: -20px !important;
+.field input:focus +label{
+  color: #3f01a3;
 }
+.auth_screen_right{
+  flex: 1;
+  background-color: #242424;
+  height: auto;
+  background-image: url(https://source.unsplash.com/1600x900/?mountains);
+  background-size: cover;
 
-#upload_btn{
-  width:45px;
-  height: 45px;
-  background-color: rgb(44, 44, 253);
-  display: inline-flex;
-  position: fixed;
-  bottom:25px;
-  right: 25px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 2px 12px rgba(128, 128, 128, 0.849);
-  color: #fff;
-  cursor: pointer;
-}
-#upload_btn:hover{
-  background-color: rgb(0, 0, 145);
-}
-#file{
-  display: none;
-}
-
-.progressbar{
-  width: 100%;
-  height: 18px;
-  border-radius: 6%;
-  transition: all .7s ease-in-out;
-  background-color: rgb(121, 121, 121);
-}
-.progress_value{
-  height: 100%;
-  transition: all .7s ease-in-out;
-  background-color: rgb(109, 0, 252);
-}
-
-.container{
-  width: 90%;
-  margin: 0 auto;
-}
-
-.files__container{
-  width: 65%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap:30px;
-}
-.file_card{
-  flex:1;
-  max-width: 250px;
-  padding: 12px;
-  background-color: rgba(119, 0, 255, 0.63);
-  /* border: 1px solid rgba(132, 0, 255, 0.226); */
-  display: flex;
-  flex-direction: column;
-  gap:10px;
-  border-radius: 3%;
-  cursor: pointer;
-  transition: 0.1s;
-}
-
-.file_card:hover{
-  flex:1;
-  max-width: 250px;
-  padding: 12px;
-  background-color: rgba(119, 0, 255, 0.897);
-  /* border: 1px solid rgba(132, 0, 255, 0.226); */
-  display: flex;
-  flex-direction: column;
-  gap:10px;
-  border-radius: 3%;
-  cursor: pointer;
-}
-
-.file__cover{
-  width: 100%;
-  height: 150px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.file__cover img{
-
-  width: 100%;
-  height: 100%;
-  border-radius: 4%;
 }
 
 
-.image__cover{
-  width: 100%;
-  height: 100%;
-  border-radius: 4%;
-}
-.file_name{
-  font-size: 14px;
-  font-family:sans-serif;
-}
-.file__footer{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+@media screen and (max-width:968px){
+  .auth_screen_right{
+    display: none;
+  }
+  .auth{
+    overflow: hidden;
+  }
 }
 
-.download_btn{
-  width: 35px;
-  height: 35px;
-  background-color: rgb(0, 26, 255);
-  cursor: pointer;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  box-shadow: 1px 1px 12px #3f01a38f;
-  justify-content: center;
-  border-radius: 50%;
-  border: 0;
-}
-.download_btn:hover{
-  background-color: rgb(0, 13, 134);
-}
-a{
-  text-decoration: none;
-  text-shadow: 2px 2px 5px grey;
-  color:rgba(0, 4, 255, 0.52);
-  font-weight: 500;
-}
+
+/*Client*/

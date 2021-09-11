@@ -1,5 +1,4 @@
 import './App.css';
-import Home from './pages/Home';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Auth from './pages/Auth';
 import React from 'react';
@@ -7,10 +6,13 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import {setUser} from "./redux/actions/_appAction"
+import dotenv from "dotenv"
+import Dashboard from './pages/Dashboard';
+dotenv.config()
 function App(props) {
   console.log(props)
   React.useEffect(()=>{
-    Cookies.get("AUTH_TOKEN") && axios.get('https://filehostt.herokuapp.com/auth/user',{
+    Cookies.get("AUTH_TOKEN") && axios.get(`https://fileehostt.herokuapp.com/auth/user`,{
       headers:{
         "Authorization":Cookies.get('AUTH_TOKEN')
       }
@@ -31,12 +33,17 @@ function App(props) {
   
   <Switch>
   <Route exact path="/">
-    <Home/>
+    <h1>HomePage</h1>
     </Route>
-
-    <Route exact path="/login">
-    <Home/>
-    </Route>
+    <Route
+          exact
+            path="/dashboard/:type"
+            render={(props) => {
+              const type = props.match.params.type;
+              return <Dashboard type={type && type} />;
+            }}
+           
+          />
     <Route
           exact
             path="/auth/:type"
