@@ -79,7 +79,7 @@ function Auth(props) {
             token && Cookies.set('AUTH_TOKEN',token);
             console.log(token);
             setTimeout(()=>{
-                window.location.href="/";
+                window.location.href="/dashboard/drive";
             },3000);
             }
             else{

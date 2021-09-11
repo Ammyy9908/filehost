@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import {setUser} from "./redux/actions/_appAction"
 import dotenv from "dotenv"
 import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
 dotenv.config()
 function App(props) {
   console.log(props)
@@ -33,7 +34,7 @@ function App(props) {
   
   <Switch>
   <Route exact path="/">
-    <h1>HomePage</h1>
+    <Home/>
     </Route>
     <Route
           exact

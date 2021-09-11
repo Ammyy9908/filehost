@@ -1,0 +1,126 @@
+.home{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    width: 90%;
+    margin: 10px auto;
+}
+.container header{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container header > a{
+    font-weight: 900;
+    color: #000;
+    font-size: 20px;
+}
+
+.nav_list{
+    display: flex;
+    justify-content: center;
+    gap:25px;
+}
+.nav_list a{
+    color: #262626;
+    font-size: 14px;
+    font-weight: 400;
+}
+.product__auth__links{
+    display: flex;
+    align-items: center;
+    gap:35px;
+}
+.product__auth__links a{
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 2px solid #000;
+    border-radius: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+
+}
+.product__auth__links a:nth-child(1){
+    background-color: transparent;
+    color: #000;
+}
+.product__auth__links a:nth-child(2){
+    background-color: #000;
+    color: #fff;
+}
+
+.hero{
+    width: 100%;
+    height: 75vh;
+}
+.hero .section__container{
+width: 100%;
+display: flex;
+height: 100%;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+}
+
+.section_content{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    animation: moveUp .3s 1 ease-in;
+}
+
+@keyframes moveUp{
+    0%{
+        top: 80%;
+    }
+    100%{
+        top: 50%;
+    }
+}
+
+.section_content button{
+    padding: 12px;
+    border: 1px solid transparent;
+    background-color: #000;
+    color: #fff;
+    border-radius: 65px;
+    cursor: pointer;
+}
+.section_left svg{
+    width: 485px;
+    height: 485px;
+}
+
+
+
+@media screen and (max-width:675px){
+    .nav_list{
+        display: none;
+    }
+    .section_left svg{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width:480px){
+    .product__auth__links a:nth-child(2){
+        display: none;
+    }
+    .product__auth__links a:nth-child(1){
+        border: 0;
+    }
+}
+
+
