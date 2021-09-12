@@ -37,12 +37,7 @@ function Sidebar(props) {
             icon:FiTrash,
             path:"trash"
         },
-        {
-            id:4,
-            text:"Public",
-            icon:FiUser,
-            path:"public"
-        }
+       
         
     ]
 

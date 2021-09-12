@@ -37,3 +37,23 @@ export const setMobileNav = (mobile_nav)=>({
     type:"SET_MOBILE_NAV",
     mobile_nav
 })
+
+export const setEditForm = (form_edit)=>({
+    type:"SET_EDIT_FORM",
+    form_edit
+})
+
+export const setTrash = (trash)=>({
+    type:"SET_TRASH",
+    trash
+})
+
+export const addTrash = (id)=>({
+    type:"ADD_TRASH",
+    id
+})
+
+export const restoreTrash = (id)=>({
+    type:"RESTORE_TRASH",
+    id
+})

@@ -1,8 +1,8 @@
 import React from 'react'
 import "./MobileNav.css"
-import {FiHardDrive,FiUsers,FiTrash} from "react-icons/fi"
+import {FiHardDrive,FiUsers,FiTrash,FiEdit2} from "react-icons/fi"
 import { connect } from 'react-redux'
-import { setCurrentPage, setUser } from '../redux/actions/_appAction'
+import { setCurrentPage, setEditForm, setMobileNav, setUser } from '../redux/actions/_appAction'
 import { useHistory } from 'react-router'
 import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
@@ -24,6 +24,13 @@ function MobileNav(props) {
         history.push('/auth/login');
 
     }
+
+
+    const handleEditForm =()=>{
+        props.setMobileNav(false)
+        props.setEditForm(true)
+
+    }
     return (
         <div className={`mobile-nav ${props.mobile_nav && "mobile_nav_enable"}`}>
             <div className="mobile_nav__wrapper">
@@ -33,10 +40,15 @@ function MobileNav(props) {
                 <div className="nav__divider"></div>
 
                 <div className="nav__user__bar">
-                    <div className="nav_user_avatar"></div>
+                    <button className="user_profile_edit_btn" onClick={handleEditForm}>
+                        <FiEdit2/>
+                    </button>
+                    <div className="nav_user_avatar">
+                        {props.user && props.user.avatar && <img src={props.user.avatar} alt="user__avatar"/>}
+                    </div>
                     <div className="nav__user__detail">
-                        <span>Username</span>
-                        <p>user email</p>
+                        <span>{props.user && props.user.name}</span>
+                        <p>{props.user && props.user.email}</p>
                     </div>
                 </div>
 
@@ -70,15 +82,7 @@ function MobileNav(props) {
                     }
                 </ul>
 
-                <div className="user-space__used">
-                    <h3>Used Space</h3>
-                    <p>You file usage appear here.</p>
-                    <div className="space_progress">
-                        <div className="space_progress_value">
-
-                        </div>
-                    </div>
-                </div>
+               
                 <button className="logout_btn_nav" onClick={logout}>Logout</button>
             </div>
         </div>
@@ -98,7 +102,9 @@ const mapStateToProps = (state)=>({
 const mapDispatchToProps = (dispatch)=>({
 
     setCurrentPage:(current_page)=>dispatch(setCurrentPage(current_page)),
-    setUser:(user)=>dispatch(setUser(user))
+    setUser:(user)=>dispatch(setUser(user)),
+    setEditForm:(form_edit)=>dispatch(setEditForm(form_edit)),
+    setMobileNav:(mobile_nav)=>dispatch(setMobileNav(mobile_nav))
     
 })
 
